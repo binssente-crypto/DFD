@@ -49,7 +49,7 @@ graph TD
     P1["<b>1.0</b><hr/>Manage User Profiles"]
     P2["<b>2.0</b><hr/>Discover Artworks"]
     P3["<b>3.0</b><hr/>Manage Commission Lifecycle"]
-    P4["<b>4.0</b><hr/>Handle Escrow Payments"]
+    P4["<b>4.0</b><hr/>Process Secure Payments"]
     P5["<b>5.0</b><hr/>Authenticate Art"]
     P6["<b>6.0</b><hr/>Manage Artist Forum"]
     
@@ -68,7 +68,7 @@ graph TD
     P3 -- "Uploads Media" --> Storage
     
     Customer -- "Checks Out" --> P4
-    P4 -- "Processes Escrow" --> Payment
+    P4 -- "Processes Payment" --> Payment
     Payment -- "Payment Confirmed" --> P4
     P4 -- "Notifies Payment State" --> P3
     
@@ -104,7 +104,7 @@ graph TD
     %% Sub-Processes
     P31["<b>3.1</b><hr/>Submit Brief"]
     P32["<b>3.2</b><hr/>Negotiate Terms"]
-    P33["<b>3.3</b><hr/>Hold Escrow"]
+    P33["<b>3.3</b><hr/>Secure Payment Funds"]
     P34["<b>3.4</b><hr/>WIP & Revision"]
     P35["<b>3.5</b><hr/>Deliver Final"]
     P36["<b>3.6</b><hr/>Release Payout"]
@@ -118,8 +118,8 @@ graph TD
     P32 -- "Updates to AWAITING_DEPOSIT" --> Database
     
     Customer -- "Payment Details" --> P33
-    P33 -- "Requests Escrow" --> Payment
-    Payment -- "Escrow OK" --> P33
+    P33 -- "Requests Payment Hold" --> Payment
+    Payment -- "Hold Confirmed" --> P33
     P33 -- "Updates to IN_PROGRESS" --> Database
     
     Artist -- "Uploads WIP" --> P34
