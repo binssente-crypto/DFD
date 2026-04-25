@@ -6,7 +6,7 @@ This document contains the Data Flow Diagrams (DFD) for the OMMA Platform based 
 The Level 0 diagram provides a high-level overview of the entire OMMA system and its interactions with external entities.
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
 graph LR
     Customer[Customer]
     Admin[Admin]
@@ -14,14 +14,14 @@ graph LR
     
     P0["<b>0</b><hr/>OMMA Art Commission Platform"]
     
-    Customer -- "Sends Commission Request<br/>Submits Payment" --> P0
-    P0 -- "Views Art Discovery Feed<br/>Receives Order Status" --> Customer
+    Customer -- "<span style='font-size: 11px'>Sends Commission Request<br/>Submits Payment</span>" --> P0
+    P0 -- "<span style='font-size: 11px'>Views Art Discovery Feed<br/>Receives Order Status</span>" --> Customer
     
-    Artist -- "Uploads Portfolio<br/>Delivers Artwork" --> P0
-    P0 -- "Sends Commission Requests<br/>Issues Payouts" --> Artist
+    Artist -- "<span style='font-size: 11px'>Uploads Portfolio<br/>Delivers Artwork</span>" --> P0
+    P0 -- "<span style='font-size: 11px'>Sends Commission Requests<br/>Issues Payouts</span>" --> Artist
     
-    Admin -- "Updates System Settings<br/>Moderates Content" --> P0
-    P0 -- "Reports & Analytics<br/>Flagged Content" --> Admin
+    Admin -- "<span style='font-size: 11px'>Updates System Settings<br/>Moderates Content</span>" --> P0
+    P0 -- "<span style='font-size: 11px'>Reports & Analytics<br/>Flagged Content</span>" --> Admin
 ```
 
 ---
@@ -30,7 +30,7 @@ graph LR
 The Level 1 diagram decomposes the system into main functional processes and generalized data stores/services. 
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
 graph TD
     %% External Entities
     Customer[Customer]
@@ -90,7 +90,7 @@ graph TD
 The Level 2 diagram provides a detailed zoom-in of the `3.0 Manage Commission Lifecycle` process, breaking down the steps from initial request to final payout.
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
 graph TD
     %% External Entities
     Customer[Customer]
