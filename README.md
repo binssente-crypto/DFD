@@ -12,7 +12,7 @@ graph LR
     Admin[Admin]
     Artist[Artist]
     
-    P0["<b>0</b><hr/>OMMA Art Commission Platform"]
+    P0["<b>0</b><hr/>OMMA Art Commission<br/>Platform"]
     
     Customer -- "<span style='font-size: 11px'>Sends Commission Request<br/>Submits Payment</span>" --> P0
     P0 -- "<span style='font-size: 11px'>Views Art Discovery Feed<br/>Receives Order Status</span>" --> Customer
@@ -31,7 +31,7 @@ The Level 1 diagram decomposes the system into main functional processes and gen
 
 ```mermaid
 %%{init: { 'flowchart': { 'curve': 'step', 'nodeSpacing': 150, 'rankSpacing': 150 }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
-graph TD
+graph LR
     %% External Entities
     Customer[Customer]
     Artist[Artist]
@@ -115,7 +115,8 @@ graph TD
     P32 -- "Updates to AWAITING_DEPOSIT" --> Database
     
     Customer -- "Payment Details" --> P33
-    P33 <--> |"Requests Payment Hold<br/>Hold Confirmed"| Payment
+    P33 -- "Requests Payment Hold" --> Payment
+    Payment -- "Hold Confirmed" --> P33
     P33 -- "Updates to IN_PROGRESS" --> Database
     
     Artist -- "Uploads WIP" --> P34
@@ -123,12 +124,14 @@ graph TD
     P34 -- "Saves Messages & Revisions" --> Database
     
     Artist -- "Uploads Final Delivery" --> P35
-    P35 <--> |"Requests Verification<br/>Verification Passed"| P5
+    P35 -- "Requests Verification" --> P5
+    P5 -- "Verification Passed" --> P35
     Customer -- "Approves Delivery" --> P35
     P35 -- "Marks DELIVERED" --> Database
     
     P35 -- "Signals Completion" --> P36
-    P36 <--> |"Requests Payout<br/>Payout Confirmed"| Payment
+    P36 -- "Requests Payout" --> Payment
+    Payment -- "Payout Confirmed" --> P36
     P36 -- "Updates to COMPLETED" --> Database
     P36 -- "Sends Funds" --> Artist
 ```
