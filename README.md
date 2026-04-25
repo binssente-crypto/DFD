@@ -56,6 +56,7 @@ graph TD
     %% Flows
     Customer -- "Fills-out Info" --> P1
     Artist -- "Fills-out Info" --> P1
+    Admin -- "Moderates / Approves" --> P1
     P1 -- "Saves Profile Data" --> Database
     
     Customer -- "Browses & Filters" --> P2
@@ -64,24 +65,20 @@ graph TD
     
     Customer -- "Submits Request<br/>Messages & Revisions" --> P3
     Artist -- "Accepts Request<br/>Messages & Delivery" --> P3
+    Admin -- "Resolves Disputes" --> P3
     P3 -- "Updates Order State" --> Database
     P3 -- "Uploads Media" --> Storage
     
     Customer -- "Checks Out" --> P4
-    P4 -- "Processes Payment" --> Payment
-    Payment -- "Payment Confirmed" --> P4
+    P4 <--> |"Processes Payment<br/>Payment Confirmed"| Payment
     P4 -- "Notifies Payment State" --> P3
     
     P3 -- "Final Upload" --> P5
-    P5 -- "Sends File Scan" --> AI_Auth
-    AI_Auth -- "Returns Fingerprint" --> P5
+    P5 <--> |"Sends File Scan<br/>Returns Fingerprint"| AI_Auth
     P5 -- "Records Auth Badge" --> Database
     
     Artist -- "Posts Content" --> P6
     P6 -- "Stores Threads" --> Database
-    
-    Admin -- "Moderates / Approves" --> P1
-    Admin -- "Resolves Disputes" --> P3
 ```
 
 ---
@@ -118,8 +115,7 @@ graph TD
     P32 -- "Updates to AWAITING_DEPOSIT" --> Database
     
     Customer -- "Payment Details" --> P33
-    P33 -- "Requests Payment Hold" --> Payment
-    Payment -- "Hold Confirmed" --> P33
+    P33 <--> |"Requests Payment Hold<br/>Hold Confirmed"| Payment
     P33 -- "Updates to IN_PROGRESS" --> Database
     
     Artist -- "Uploads WIP" --> P34
@@ -127,14 +123,12 @@ graph TD
     P34 -- "Saves Messages & Revisions" --> Database
     
     Artist -- "Uploads Final Delivery" --> P35
-    P35 -- "Requests Verification" --> P5
-    P5 -- "Verification Passed" --> P35
+    P35 <--> |"Requests Verification<br/>Verification Passed"| P5
     Customer -- "Approves Delivery" --> P35
     P35 -- "Marks DELIVERED" --> Database
     
     P35 -- "Signals Completion" --> P36
-    P36 -- "Requests Payout" --> Payment
-    Payment -- "Payout Confirmed" --> P36
+    P36 <--> |"Requests Payout<br/>Payout Confirmed"| Payment
     P36 -- "Updates to COMPLETED" --> Database
     P36 -- "Sends Funds" --> Artist
 ```
