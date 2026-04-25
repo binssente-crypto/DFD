@@ -6,7 +6,7 @@ This document contains the Data Flow Diagrams (DFD) for the OMMA Platform based 
 The Level 0 diagram provides a high-level overview of the entire OMMA system and its interactions with external entities.
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step', 'nodeSpacing': 150, 'rankSpacing': 150 }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': 'rgba(255, 255, 255, 0.6)' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step', 'nodeSpacing': 150, 'rankSpacing': 150 }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
 graph LR
     Customer[Customer]
     Admin[Admin]
@@ -30,7 +30,7 @@ graph LR
 The Level 1 diagram decomposes the system into main functional processes and generalized data stores/services. 
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step', 'nodeSpacing': 150, 'rankSpacing': 150 }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': 'rgba(255, 255, 255, 0.6)' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step', 'nodeSpacing': 150, 'rankSpacing': 150 }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
 graph TD
     %% External Entities
     Customer[Customer]
@@ -70,8 +70,8 @@ graph TD
     P3 -- "Uploads Media" --> Storage
     
     Customer -- "Checks Out" --> P4
-    P4 <--> |"Processes Payment<br/>Payment Confirmed"| Payment
     P4 -- "Notifies Payment State" --> P3
+    P4 <--> |"Processes Payment<br/>Payment Confirmed"| Payment
     
     P3 -- "Final Upload" --> P5
     P5 <--> |"Sends File Scan<br/>Returns Fingerprint"| AI_Auth
@@ -87,7 +87,7 @@ graph TD
 The Level 2 diagram provides a detailed zoom-in of the `3.0 Manage Commission Lifecycle` process, breaking down the steps from initial request to final payout.
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step', 'nodeSpacing': 150, 'rankSpacing': 150 }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': 'rgba(255, 255, 255, 0.6)' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step', 'nodeSpacing': 150, 'rankSpacing': 150 }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
 graph TD
     %% External Entities
     Customer[Customer]
