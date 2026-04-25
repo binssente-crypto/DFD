@@ -6,7 +6,7 @@ This document contains the Data Flow Diagrams (DFD) for the OMMA Platform based 
 The Level 0 diagram provides a high-level overview of the entire OMMA system and its interactions with external entities.
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': 'rgba(255, 255, 255, 0.85)' } }}%%
 graph LR
     Customer[Customer]
     Admin[Admin]
@@ -30,7 +30,7 @@ graph LR
 The Level 1 diagram decomposes the system into main functional processes and generalized data stores/services. 
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': 'rgba(255, 255, 255, 0.85)' } }}%%
 graph TD
     %% External Entities
     Customer[Customer]
@@ -90,7 +90,7 @@ graph TD
 The Level 2 diagram provides a detailed zoom-in of the `3.0 Manage Commission Lifecycle` process, breaking down the steps from initial request to final payout.
 
 ```mermaid
-%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': '#ffffff' } }}%%
+%%{init: { 'flowchart': { 'curve': 'step' }, 'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'primaryTextColor': '#000000', 'lineColor': '#000000', 'background': '#ffffff', 'edgeLabelBackground': 'rgba(255, 255, 255, 0.85)' } }}%%
 graph TD
     %% External Entities
     Customer[Customer]
