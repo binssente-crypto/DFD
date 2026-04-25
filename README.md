@@ -12,16 +12,16 @@ graph LR
     Admin[Admin]
     Artist[Artist]
     
-    P0["<b>0</b><hr/>OMMA Art Commission<br/>Platform"]
+    P0["0<br/>OMMA Art Commission<br/>Platform"]
     
-    Customer -- "<span style='font-size: 11px'>Sends Commission Request<br/>Submits Payment</span>" --> P0
-    P0 -- "<span style='font-size: 11px'>Views Art Discovery Feed<br/>Receives Order Status</span>" --> Customer
+    Customer -- "Sends Commission Request<br/>Submits Payment" --> P0
+    P0 -- "Views Art Discovery Feed<br/>Receives Order Status" --> Customer
     
-    Artist -- "<span style='font-size: 11px'>Uploads Portfolio<br/>Delivers Artwork</span>" --> P0
-    P0 -- "<span style='font-size: 11px'>Sends Commission Requests<br/>Issues Payouts</span>" --> Artist
+    Artist -- "Uploads Portfolio<br/>Delivers Artwork" --> P0
+    P0 -- "Sends Commission Requests<br/>Issues Payouts" --> Artist
     
-    Admin -- "<span style='font-size: 11px'>Updates System Settings<br/>Moderates Content</span>" --> P0
-    P0 -- "<span style='font-size: 11px'>Reports & Analytics<br/>Flagged Content</span>" --> Admin
+    Admin -- "Updates System Settings<br/>Moderates Content" --> P0
+    P0 -- "Reports and Analytics<br/>Flagged Content" --> Admin
 ```
 
 ---
@@ -46,12 +46,12 @@ graph TD
     Database[(Platform Database)]
     
     %% Processes
-    P1["<b>1.0</b><hr/>Manage User Profiles"]
-    P2["<b>2.0</b><hr/>Discover Artworks"]
-    P3["<b>3.0</b><hr/>Manage Commission Lifecycle"]
-    P4["<b>4.0</b><hr/>Process Secure Payments"]
-    P5["<b>5.0</b><hr/>Authenticate Art"]
-    P6["<b>6.0</b><hr/>Manage Artist Forum"]
+    P1["1.0<br/>Manage User Profiles"]
+    P2["2.0<br/>Discover Artworks"]
+    P3["3.0<br/>Manage Commission Lifecycle"]
+    P4["4.0<br/>Process Secure Payments"]
+    P5["5.0<br/>Authenticate Art"]
+    P6["6.0<br/>Manage Artist Forum"]
     
     %% Flows
     Customer -- "Fills-out Info" --> P1
@@ -59,12 +59,12 @@ graph TD
     Admin -- "Moderates / Approves" --> P1
     P1 -- "Saves Profile Data" --> Database
     
-    Customer -- "Browses & Filters" --> P2
+    Customer -- "Browses and Filters" --> P2
     P2 -- "Retrieves Data" --> Database
     P2 -- "Fetches Assets" --> Storage
     
-    Customer -- "Submits Request<br/>Messages & Revisions" --> P3
-    Artist -- "Accepts Request<br/>Messages & Delivery" --> P3
+    Customer -- "Submits Request<br/>Messages and Revisions" --> P3
+    Artist -- "Accepts Request<br/>Messages and Delivery" --> P3
     Admin -- "Resolves Disputes" --> P3
     P3 -- "Updates Order State" --> Database
     P3 -- "Uploads Media" --> Storage
@@ -94,20 +94,20 @@ graph TD
     Artist[Artist]
     
     %% Stores & Services
-    Database[(Commission & Message DB)]
+    Database[(Commission and Message DB)]
     Payment[Payment System]
-    P5["<b>5.0</b><hr/>Authenticate Art"]
+    P5["5.0<br/>Authenticate Art"]
     
     %% Sub-Processes
-    P31["<b>3.1</b><hr/>Submit Brief"]
-    P32["<b>3.2</b><hr/>Negotiate Terms"]
-    P33["<b>3.3</b><hr/>Secure Payment Funds"]
-    P34["<b>3.4</b><hr/>WIP & Revision"]
-    P35["<b>3.5</b><hr/>Deliver Final"]
-    P36["<b>3.6</b><hr/>Release Payout"]
+    P31["3.1<br/>Submit Brief"]
+    P32["3.2<br/>Negotiate Terms"]
+    P33["3.3<br/>Secure Payment Funds"]
+    P34["3.4<br/>WIP and Revision"]
+    P35["3.5<br/>Deliver Final"]
+    P36["3.6<br/>Release Payout"]
     
     %% Flows
-    Customer -- "Provides Brief & Deadline" --> P31
+    Customer -- "Provides Brief and Deadline" --> P31
     P31 -- "Saves PENDING Request" --> Database
     
     Database -- "Loads Pending" --> P32
@@ -120,7 +120,7 @@ graph TD
     
     Artist -- "Uploads WIP" --> P34
     Customer -- "Approves / Revises" --> P34
-    P34 -- "Saves Messages & Revisions" --> Database
+    P34 -- "Saves Messages and Revisions" --> Database
     
     Artist -- "Uploads Final Delivery" --> P35
     P35 <--> |"Requests Verification<br/>Verification Passed"| P5
